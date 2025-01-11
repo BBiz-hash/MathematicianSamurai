@@ -1,145 +1,182 @@
-html {
-    height: 100%;
-    background: radial-gradient(circle, #fff, #ccc);
-    overflow: hidden;
-}
-
+/* Background Video Styling */
 #bgVideo {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
-    background-size: cover;
-    opacity: 0.7;
+    filter: brightness(50%); /* Dim video for better visibility */
 }
 
+/* Container Styling */
 #container {
-    height: 400px;
-    width: 550px;
-    background: rgba(157, 210, 234, 0.8);
-    margin: 100px auto;
+    opacity: 0.9;
+    width: 600px;
+    margin: 80px auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 0px 0px rgba(0, 157, 228, 0.6);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#score {
-    background: rgba(255, 255, 0, 0.7);
-    color: black;
-    padding: 11px;
-    align-self: flex-end;
-    box-shadow: 0px 4px 0px rgba(157, 168, 83, 0.6);
-}
-
-#correct, #wrong {
-    padding: 11px;
-    color: white;
-    display: none;
-    text-align: center;
-}
-
-#correct {
-    background: rgba(66, 226, 82, 0.8);
-}
-
-#wrong {
-    background: rgba(255, 0, 0, 0.8);
-}
-
-#question {
-    width: 450px;
-    height: 150px;
-    background: rgba(157, 160, 234, 0.8);
-    box-shadow: 0px 4px 0px rgba(83, 90, 168, 0.6);
-    font-size: 100px;
-    text-align: center;
-    font-family: cursive;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#instruction {
-    width: 450px;
-    height: 50px;
-    background: rgba(180, 129, 217, 0.8);
-    text-align: center;
-    line-height: 50px;
-    box-shadow: 0px 4px 0px rgba(129, 83, 168, 0.6);
-}
-
-#choices {
-    width: 450px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.box {
-    width: 85px;
-    height: 85px;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 3px;
-    cursor: pointer;
-    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: none;
+    position: relative;
     text-align: center;
-    line-height: 85px;
-    transition: all 0.2s;
+    font-family: Arial, sans-serif;
+    max-width: 90%;
+    transition: none;
+    border: 1px solid #ccc;
 }
 
-.box:hover {
-    background: rgba(156, 137, 246, 0.8);
-    color: white;
-    box-shadow: 0px 4px rgba(107, 84, 211, 0.6);
-}
-
-#startreset {
-    width: 150px;
+/* Instruction Styling */
+#instruction {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px auto;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 3px;
-    cursor: pointer;
-    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    background: rgba(200, 230, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 157, 255, 0.5);
+}
+
+/* Score Styling */
+#score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4caf50;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Timer Styling */
+#timeremaining {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #f57c00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Question Styling */
+#question {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 30px 0;
+    color: #333;
+}
+
+/* Choice Boxes Styling */
+#choices {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+#choices .box {
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
     text-align: center;
-    transition: all 0.2s;
+    background: #2196f3;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#choices .box:hover {
+    transform: scale(1.1);
+    background: #1976d2;
+}
+
+/* Start/Reset Button */
+#startreset {
+    margin: 20px auto;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e91e63;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease;
 }
 
 #startreset:hover {
-    background: rgba(156, 137, 246, 0.8);
-    color: white;
-    box-shadow: 0px 4px rgba(107, 84, 211, 0.6);
+    background: #d81b60;
+    transform: scale(0.95);
 }
 
-#timeremaining {
-    width: 152px;
-    padding: 10px;
-    background: rgba(181, 235, 36, 0.7);
-    border-radius: 3px;
-    display: none;
+#startreset:active {
+    transform: scale(0.95);
+}
+
+/* Correct/Incorrect Message Styling */
+#correct, #wrong {
+    display: none;  /* Hide by default */
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
     text-align: center;
+    opacity: 0.7;  /* Apply opacity */
+    background: #f44336;  /* Solid red background */
+    color: #fff;  /* White text */
+    animation: bounce 1s ease-in-out; /* Bounce animation for correct */
 }
 
+#correct {
+	background: #4caf50;
+}
+
+#wrong {
+    background: #f44336;  /* Solid red background */
+    animation: shake 0.5s ease; /* Shake animation for wrong */
+}
+
+/* Correct message bounce animation */
+@keyframes bounce {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Wrong message shake animation */
+@keyframes shake {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(5deg); }
+    50% { transform: translateX(-50%) rotate(-5deg); }
+    75% { transform: translateX(-50%) rotate(5deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Game Over Screen */
 #gameover {
-    height: 200px;
-    width: 500px;
-    background: linear-gradient(rgba(243, 202, 107, 0.8), rgba(243, 112, 108, 0.8));
-    color: white;
-    font-size: 2.5em;
-    text-align: center;
-    text-transform: uppercase;
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-    display: none;
+    width: 80%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
 }
